@@ -1,0 +1,31 @@
+{
+  "name": "wdk-hinkal-demo",
+  "version": "1.0.0",
+  "description": "Private USDC transfers on Base through Hinkal, on the WDK wallet stack.",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "esbuild src/demo.js --bundle --platform=node --format=cjs \"--external:@hinkal/common/*\" --external:sodium-native --external:sodium-universal --outfile=.build/demo.cjs --log-level=error",
+    "preflight": "npm run build && node .build/demo.cjs preflight",
+    "send": "npm run build && node .build/demo.cjs send",
+    "send:stuck": "npm run build && node .build/demo.cjs send:stuck",
+    "recover": "npm run build && node .build/demo.cjs recover"
+  },
+  "dependencies": {
+    "@hinkal/common": "0.3.13",
+    "@hinkal/wdk-wallet-evm-hinkal": "file:../Hinkal/wdk/wdk-wallet-evm-hinkal",
+    "dotenv": "^18.0.1",
+    "ethers": "6.17.0",
+    "sodium-universal": "5.0.1"
+  },
+  "devDependencies": {
+    "esbuild": "^0.25.12"
+  },
+  "overrides": {
+    "lodash": "npm:lodash-es@^4.18.1",
+    "stream-json": "^3.6.0",
+    "toml": "^5.0.0",
+    "uuid": "^11.1.1",
+    "ws": "^8.21.0"
+  }
+}
