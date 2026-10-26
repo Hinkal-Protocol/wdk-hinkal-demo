@@ -72,7 +72,7 @@ The amount defaults to 0.0001 ETH; override with `STUCK_AMOUNT`.
 | `AMOUNT`       | `100000`                    | USDC base units (6 decimals), so 0.1     |
 | `STUCK_AMOUNT` | `100000000000000`           | ETH wei for `send:stuck`, so 0.0001      |
 
-For anything beyond light testing, use your own Alchemy or Infura endpoint — public RPCs are rate-limited.
+Public RPCs are rate-limited; for heavier testing point `RPC_URL` at a dedicated endpoint.
 
 ## Why the build step
 
